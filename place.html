@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        header {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            height: auto;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between; 
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header img {
+            max-height: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .header-link {
+            color: #000;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slideshow {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+            margin: auto;
+            overflow: hidden;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .slides {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        footer .social-follow {
+            background-color: #000;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .social-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        footer .social-icons img {
+            width: 25px;
+            height: auto;
+        }
+
+        footer .rights-reserved {
+            margin-left: auto;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .header-link {
+                font-size: 14px;
+                margin: 0 3px;
+            }
+
+            footer .social-follow {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            footer .social-item span {
+                font-size: 12px;
+            }
+
+            footer .rights-reserved {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <header>
+        <div class="header-left">
+            <img src="https://imgur.com/bpw7IUT.png" alt="Logo">
+            <a href="index.html" class="header-link">Home</a>
+            <a href="menu.html" class="header-link">Menu</a>
+            <a href="contact.html" class="header-link">Contact</a>
+            <a href="order.html" class="header-link">Order Online</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Image Gallery</h2>
+            <div class="slideshow">
+                <img class="slides" src="https://imgur.com/q1NCYDm.jpg" alt="Place 1">
+                <img class="slides" src="https://imgur.com/drouiam.jpg" alt="Place 2">
+                <img class="slides" src="https://imgur.com/n5tfHIN.jpg" alt="Place 3">
+                <img class="slides" src="https://imgur.com/h1JF2LZ.jpg" alt="Place 4">
+                <img class="slides" src="https://imgur.com/fQerpML.jpg" alt="Place 5">
+                <img class="slides" src="https://imgur.com/rI63vyy.jpg" alt="Place 6">
+                <img class="slides" src="https://imgur.com/lBfOnsq.jpg" alt="Place 7">
+                <img class="slides" src="https://imgur.com/n7fc9bX.jpg" alt="Place 8">
+                <img class="slides" src="https://imgur.com/PfWMXzC.jpg" alt="Place 9">
+                <img class="slides" src="https://imgur.com/4Opll4K.jpg" alt="Place 10">
+                <img class="slides" src="https://imgur.com/N8QXhXJ.jpg" alt="Place 11">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-follow">Follow our Social!!</div>
+        <div class="social-icons">
+            <div class="social-item">
+                <img src="https://imgur.com/8u15Vht.png" alt="Twitter">
+                <span>@coffeeshop</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/8Ep5XiX.png" alt="Facebook">
+                <span>Coffee Shop</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/oyxmgmx.png" alt="Instagram">
+                <span>@coffeeshop</span>
+            </div>
+        </div>
+        <div class="rights-reserved">© 2024 HubSpot Coffee. All rights reserved.</div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000);
+        }
+    </script>
+</body>
+</html>
