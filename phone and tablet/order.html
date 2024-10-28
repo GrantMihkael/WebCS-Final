@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        header {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            height: 60px;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            max-height: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .header-link {
+            color: #000;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 14px;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .order-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        footer .social-follow {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        footer .social-icons img {
+            width: 20px;
+            height: auto;
+        }
+
+        footer .rights-reserved {
+            margin-left: auto;
+        }
+
+        .submit-button {
+            background-color: #fff; 
+            color: #000; 
+            border: none; 
+            padding: 10px 15px; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin-top: 10px; 
+        }
+
+        .submit-button:hover {
+            background-color: #ddd; 
+        }
+
+        form {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 10px; 
+            margin-top: 20px; 
+        }
+
+        input[type="text"] {
+            padding: 8px; 
+            width: 100%; 
+            max-width: 300px; 
+            border: 1px solid #fff; 
+            border-radius: 5px; 
+            background-color: transparent; 
+            color: #fff; 
+        }
+
+        input[type="text"]::placeholder {
+            color: #ccc; 
+        }
+
+        .order-item {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            gap: 10px; 
+        }
+
+        .remove-button {
+            background-color: #ff4d4d; 
+            border: none; 
+            color: #fff; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+
+        .remove-button:hover {
+            background-color: #cc0000; 
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <header>
+        <div class="header-left">
+            <img src="https://imgur.com/bpw7IUT.png" alt="Logo">
+            <a href="homepage.html" class="header-link">Home</a>
+            <a href="menu.html" class="header-link">Menu</a>
+            <a href="contact.html" class="header-link">Contact</a>
+            <a href="order.html" class="header-link">Order Online</a>
+        </div>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Place your Order</h2>
+            <div class="order-container" id="order-container">
+            </div>
+            <button class="submit-button" onclick="addOrderField()">Add Order</button>
+            <button class="submit-button" onclick="submitOrders()">Submit All Orders</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-follow">Follow our Social!!</div>
+        <div class="social-icons">
+            <div class="social-item">
+                <img src="https://imgur.com/8u15Vht.png" alt="Twitter Logo">
+                <span>@HubSpotCoffee</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/8Ep5XiX.png" alt="Facebook Logo">
+                <span>HubSpot Coffee</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/oyxmgmx.png" alt="Instagram Logo">
+                <span>@HubSpotCoffee</span>
+            </div>
+        </div>
+        <div class="rights-reserved">© 2024 HubSpot Coffee. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function addOrderField() {
+            const orderContainer = document.getElementById('order-container');
+
+            const orderDiv = document.createElement('div');
+            orderDiv.className = 'order-item';
+
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = 'Your Name';
+
+            const orderInput = document.createElement('input');
+            orderInput.type = 'text';
+            orderInput.placeholder = 'Your Order';
+
+            const phoneInput = document.createElement('input');
+            phoneInput.type = 'text';
+            phoneInput.placeholder = 'Your Phone Number';
+
+            const addressInput = document.createElement('input');
+            addressInput.type = 'text';
+            addressInput.placeholder = 'Your Address';
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.className = 'remove-button';
+            removeButton.onclick = () => {
+                orderContainer.removeChild(orderDiv);
+            };
+
+            orderDiv.appendChild(nameInput);
+            orderDiv.appendChild(orderInput);
+            orderDiv.appendChild(phoneInput);
+            orderDiv.appendChild(addressInput);
+            orderDiv.appendChild(removeButton);
+
+            orderContainer.appendChild(orderDiv);
+        }
+
+        function submitOrders() {
+            const orders = document.querySelectorAll('.order-item');
+            if (orders.length === 0) {
+                alert('No orders to submit.');
+                return;
+            }
+
+            let orderDetails = '';
+
+            for (const order of orders) {
+                const name = order.children[0].value.trim();
+                const orderText = order.children[1].value.trim();
+                const phone = order.children[2].value.trim();
+                const address = order.children[3].value.trim();
+
+                if (!name || !orderText || !phone || !address) {
+                    alert('Please fill out all fields in each order before submitting.');
+                    return;
+                }
+
+                orderDetails += `Name: ${name}, Order: ${orderText}, Phone: ${phone}, Address: ${address}\n`;
+            }
+
+            alert(`Orders Submitted:\n${orderDetails}`);
+            document.getElementById('order-container').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

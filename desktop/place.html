@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        header {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            height: 80px; /* Fixed header height */
+            display: flex;
+            align-items: center; 
+            justify-content: space-between; /* Space between left and right sections */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center; /* Center the logo and links vertically */
+        }
+
+        header img {
+            max-height: 60px; /* Set maximum height for the logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between logo and links */
+        }
+
+        .header-link {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px; /* Space between the links */
+            font-size: 18px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Slideshow */
+        .slideshow {
+            position: relative;
+            max-width: 500px;
+            margin: auto;
+            overflow: hidden;
+            border: 3px solid #fff; /* White border */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Soft shadow */
+        }
+
+        .slides {
+            display: none;
+            width: 100%; /* Ensures the image takes the full width */
+            height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            gap: 20px;
+        }
+
+        /* Social Follow Text */
+        footer .social-follow {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Social Icons */
+        footer .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Social Item (Icon + Text) */
+        footer .social-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Social Media Icons */
+        footer .social-icons img {
+            width: 30px;
+            height: auto;
+        }
+
+        /* Rights Reserved */
+        footer .rights-reserved {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+     <!-- Your content goes here -->
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <header>
+        <div class="header-left">
+            <img src="https://imgur.com/bpw7IUT.png" alt="Logo"> <!-- Updated Logo -->
+            <a href="homepage.html" class="header-link">Home</a>
+            <a href="menu.html" class="header-link">Menu</a>
+            <a href="contact.html" class="header-link">Contact</a>
+            <a href="order.html" class="header-link">Order Online</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Our Beautiful Places</h2> <!-- Added heading for the section -->
+            <div class="slideshow">
+                <img class="slides" src="https://imgur.com/q1NCYDm.jpg" alt="Place 1">
+                <img class="slides" src="https://imgur.com/drouiam.jpg" alt="Place 2">
+                <img class="slides" src="https://imgur.com/n5tfHIN.jpg" alt="Place 3">
+                <img class="slides" src="https://imgur.com/h1JF2LZ.jpg" alt="Place 4">
+                <img class="slides" src="https://imgur.com/fQerpML.jpg" alt="Place 5">
+                <img class="slides" src="https://imgur.com/rI63vyy.jpg" alt="Place 6">
+                <img class="slides" src="https://imgur.com/lBfOnsq.jpg" alt="Place 7">
+                <img class="slides" src="https://imgur.com/n7fc9bX.jpg" alt="Place 8">
+                <img class="slides" src="https://imgur.com/PfWMXzC.jpg" alt="Place 9">
+                <img class="slides" src="https://imgur.com/4Opll4K.jpg" alt="Place 10">
+                <img class="slides" src="https://imgur.com/N8QXhXJ.jpg" alt="Place 11">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-follow">Follow our Social!!</div>
+        <div class="social-icons">
+            <div class="social-item">
+                <img src="https://imgur.com/8u15Vht.png" alt="Twitter">
+                <span>@coffeeshop</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/8Ep5XiX.png" alt="Facebook">
+                <span>Coffee Shop</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/oyxmgmx.png" alt="Instagram">
+                <span>@coffeeshop</span>
+            </div>
+        </div>
+        <div class="rights-reserved">© 2024 HubSpot C. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+    </script>
+
+</body>
+</html>

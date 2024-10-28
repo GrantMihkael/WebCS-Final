@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            height: 80px; 
+            display: flex;
+            align-items: center; 
+            justify-content: space-between; 
+            position: relative;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center; 
+        }
+
+        header img {
+            max-height: 60px; 
+            height: auto; 
+            margin-right: 10px; 
+        }
+
+        .header-link {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px; 
+            font-size: 18px;
+        }
+
+        main {
+            height: calc(100vh - 80px);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 10px;
+            font-family: 'Roboto Mono', monospace; 
+        }
+
+        .image-border {
+            border: 3px solid #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            width: 100%;
+            height: 85%;
+            margin: 0 auto;
+        }
+
+        .menu-image, .place-image, .food-image {
+            border: 2px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-image {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+
+        .place-image {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .food-image {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .menu-image img, 
+        .place-image img, 
+        .food-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-image:hover img,
+        .place-image:hover img,
+        .food-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .menu-text,
+        .place-text,
+        .food-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 28px; 
+            padding: 5px;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+        }
+
+        .menu-image:hover .menu-text,
+        .place-image:hover .place-text,
+        .food-image:hover .food-text {
+            color: #ffcc00; 
+        }
+
+        footer {
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            gap: 20px;
+        }
+
+        footer .social-follow {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer .social-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        footer .social-icons img {
+            width: 30px;
+            height: auto;
+        }
+
+        footer .rights-reserved {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <header>
+        <div class="header-left" id="header-left">
+            <img src="https://imgur.com/bpw7IUT.png" alt="Logo">
+            <a href="homepage.html" class="header-link">Home</a>
+            <a href="menu.html" class="header-link">Menu</a>
+            <a href="contact.html" class="header-link">Contact</a>
+            <a href="order.html" class="header-link">Order Online</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="image-border">
+            <div class="menu-image">
+                <a href="drinks.html">
+                    <img src="https://imgur.com/YtI9srj.png" alt="Drinks">
+                    <div class="menu-text">Drinks</div>
+                </a>
+            </div>
+            <div class="place-image">
+                <a href="place.html">
+                    <img src="https://imgur.com/0nkg7D4.png" alt="Place">
+                    <div class="place-text">Place</div>
+                </a>
+            </div>
+            <div class="food-image">
+                <a href="menu2.html">
+                    <img src="https://imgur.com/aTZ0uaQ.jpg" alt="Food">
+                    <div class="food-text">Food</div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-follow">Follow our Social!!</div>
+        <div class="social-icons">
+            <div class="social-item">
+                <img src="https://imgur.com/8u15Vht.png" alt="Twitter Logo">
+                <span>@HubSpotCoffee</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/8Ep5XiX.png" alt="Facebook Logo">
+                <span>HubSpot Coffee</span>
+            </div>
+            <div class="social-item">
+                <img src="https://imgur.com/oyxmgmx.png" alt="Instagram Logo">
+                <span>@HubSpotCoffee</span>
+            </div>
+        </div>
+        <div class="rights-reserved">© 2024 HubSpot Coffee. All rights reserved.</div>
+    </footer>
+</body>
+</html>
